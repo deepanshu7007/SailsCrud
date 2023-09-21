@@ -6,7 +6,7 @@
  */
 
 module.exports = {
-  tableName:"Cloth",
+  // tableName:"Cloth",
   attributes: {
     
   },
