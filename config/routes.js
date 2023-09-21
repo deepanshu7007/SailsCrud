@@ -11,8 +11,8 @@
 module.exports.routes = {
   // '/': { view: 'pages/homepage' },
   // 'post /signup':  'ProductController.signup' ,
-  'post /add': 'ProductController.add',
-  'post /edit': 'ProductController.edit',
-  'post /delete': 'ProductController.delete',
-  'post /display': 'ProductController.display'
+  'post /add': 'StudentController.add',
+  'post /edit': 'StudentController.edit',
+  'post /delete': 'StudentController.delete',
+  'get /display': 'StudentController.display'
 };

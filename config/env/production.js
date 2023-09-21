@@ -55,7 +55,7 @@ module.exports = {
       //
       //  For example:
       //  ```
-       sails_datastores__default__url:"mongodb://24Weed01Dash22:W05eE44D1daS19h@74.208.206.18:27017/db_weeddash"
+      //  sails_datastores__default__url:"mongodb://24Weed01Dash22:W05eE44D1daS19h@74.208.206.18:27017/db_weeddash"
       //  ```
       //--------------------------------------------------------------------------
 

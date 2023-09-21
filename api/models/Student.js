@@ -8,24 +8,30 @@
 module.exports = {
 
   attributes: {
-    productName:{
+    cid:{
+      type:"number",
+      autoIncrement:true
+    },
+    name:{
       type:"string",
       required: true,
-      // columnName: "product_name"
     },
-    productAmount:{
+    age:{
       type:"number",
+      defaultsTo:18,
+    },
+    rollno:{
+      type:"string",
       required: true,
-      // columnName: "product_amount"
+      unique:true,
     },
-    createdAt:{
-      type:"ref",
-      autoCreatedAt: true
+    phoneNumber:{
+      type:"string",
+      allowNull:true
     },
-    updatedAt:{
-      type:"ref",
-      autoUpdatedAt: true
-    }
+    // teacherAlloted:{
+    //   model:"teacher",
+    // }
   },
 
 };
