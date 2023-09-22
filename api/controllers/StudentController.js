@@ -81,6 +81,6 @@ module.exports = {
         catch (val) {
             console.log(val);
         }
-    },
+    }
 };
 

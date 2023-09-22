@@ -1,0 +1,30 @@
+[{
+    "student_name":"Deepanshu",
+    "student_age":19,
+    "student_rollno":"18BCA1083",
+    "student_image":"xxxxxxxxxx",
+    "teacher_model":"",
+    "marks_model":"",
+    "subjects": ["english","hindi","math","science","sst","punjabi"],
+    "email":"",
+    "designation":"student"
+  },
+  {
+  "t_id":"",
+  "teacher_name": "Kulwinder Singh",
+  "teacher_age": 19,
+  "teacher_rollno": "18BCA1083",
+  "teacher_image": "xxxxxxxxxx",
+  "email": "",
+  "designation": "teacher"
+  },
+  {
+    "english":"",
+    "sub_marks":[{
+    "eng":"",
+    "hindi":"" ,
+    "math": "",
+    "science": "",
+    "sst": ""
+    }]
+  }]

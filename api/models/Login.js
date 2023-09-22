@@ -1,14 +1,19 @@
 /**
- * Cloth.js
+ * Login.js
  *
  * @description :: A model definition represents a database table/collection.
  * @docs        :: https://sailsjs.com/docs/concepts/models-and-orm/models
  */
 
 module.exports = {
-  // tableName:"Cloth",
+
   attributes: {
-    
+    rollno:{
+      type:"string"
+    },
+    password:{
+      type:"string"
+    }
   },
 
 };

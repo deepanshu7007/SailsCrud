@@ -10,6 +10,7 @@
 
 module.exports.routes = {
   // '/': { view: 'pages/homepage' },
+  // delete and put
   // 'post /signup':  'ProductController.signup' ,
   'post /add': 'StudentController.add',
   'post /edit': 'StudentController.edit',

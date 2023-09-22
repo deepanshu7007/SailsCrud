@@ -10,7 +10,7 @@ module.exports = {
   attributes: {
     cid:{
       type:"number",
-      autoIncrement:true
+      autoIncrement:true//
     },
     name:{
       type:"string",
@@ -29,9 +29,6 @@ module.exports = {
       type:"string",
       allowNull:true
     },
-    // teacherAlloted:{
-    //   model:"teacher",
-    // }
   },
 
 };
