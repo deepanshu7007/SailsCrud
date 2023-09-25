@@ -13,7 +13,13 @@ module.exports.routes = {
   // delete and put
   // 'post /signup':  'ProductController.signup' ,
   'post /add': 'StudentController.add',
-  'post /edit': 'StudentController.edit',
-  'post /delete': 'StudentController.delete',
-  'get /display': 'StudentController.display'
+  'put /edit': 'StudentController.edit',
+  'delete /delete': 'StudentController.delete',
+  'get /display': 'StudentController.display',
+  'get /display/sort': 'StudentController.displaySort',
+  'get /display/limit': 'StudentController.displayLimit',
+  'get /display/filter': 'StudentController.displayFilter',
+  'get /display/page': 'StudentController.displayPage',
+  
+
 };

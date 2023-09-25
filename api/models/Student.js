@@ -8,10 +8,6 @@
 module.exports = {
 
   attributes: {
-    cid:{
-      type:"number",
-      autoIncrement:true//
-    },
     name:{
       type:"string",
       required: true,
@@ -25,10 +21,13 @@ module.exports = {
       required: true,
       unique:true,
     },
-    phoneNumber:{
+    number:{
       type:"string",
       allowNull:true
     },
+    marks:{
+      type:"number",
+    }
   },
 
 };
