@@ -20,6 +20,6 @@ module.exports.routes = {
   'get /display/limit': 'StudentController.displayLimit',
   'get /display/filter': 'StudentController.displayFilter',
   'get /display/page': 'StudentController.displayPage',
-  
-
+  'post /register/student' : "StudentController.registerStudet",
+  'post /register/teacher' : "TeacherController.registerTeacher",
 };

@@ -1,11 +1,4 @@
-/**
- * UsersController
- *
- * @description :: Server-side actions for handling incoming requests.
- * @help        :: See https://sailsjs.com/docs/concepts/actions
- */
 
-const { log } = require("grunt");
 function responseStatus(data,res) {
     if (data) {
         return res.status(200).json({
@@ -148,5 +141,99 @@ module.exports = {
             });
         }
     },
+    displayNewFilter: async (req, res)=>{
+        try {
+            var search = req.param('search');
+            var isDeleted = req.param('isDeleted');
+            var page = req.param('page');
+            var count = parseInt(req.param('count'));
+            let sortBy = req.param("sortBy");
+            // let addedBy = req.param('addedBy');
+            var query = {};
+            if (search) {
+                query.$or = [
+                    { name: { $regex: search, '$options': 'i' } },
+                    { email: { $regex: search, '$options': 'i' } }
+                ]
+            }
+           
+           
+           /*
+           * This code is used to check which field,
+           * what sort order is used to sort.
+           */
+            let sortquery = {};
+            if (sortBy) {
+                let typeArr = [];
+                typeArr = sortBy.split(" ");
+                let sortType = typeArr[1];
+                let field = typeArr[0];
+                sortquery[field ? field : 'updatedAt'] = sortType ? (sortType == 'desc' ? -1 : 1) : -1;
+            } else {
+                sortquery = { updatedAt: -1 }
+            }
+
+            /*
+            * this is used to list the record which are deleted or not.
+            */           
+           
+            if (isDeleted) {
+                if (isDeleted === 'true') {
+                    isDeleted = true;
+                } else {
+                    isDeleted = false;
+                }
+                query.isDeleted = isDeleted;
+            } else {
+                query.isDeleted = false;
+            }
+
+            
+
+            if (addedBy) {
+                query.addedBy_id = ObjectId(addedBy);
+            }
+
+            const pipeline = [
+                {
+                    $project: {
+                        name: "$name",
+                        image: "$image",
+                        
+                    }
+                },
+                {
+                    $match: query
+                },
+                {
+                    $sort: sortquery
+                },
+            ]
+            db.collection('student').aggregate([...pipeline]).toArray((err, totalResult) => {
+                if (page && count) {
+                    var skipNo = (page - 1) * count;
+                    pipeline.push(
+                        {
+                            $skip: Number(skipNo)
+                        },
+                        {
+                            $limit: Number(count)
+                        })
+                }
+                db.collection('student').aggregate([...pipeline]).toArray((err, result) => {
+                    return res.status(200).json({
+                        "success": true,
+                        "data": result,
+                        "total": totalResult.length,
+                    });
+                })
+            })
+        } catch (err) {
+            return res.status(400).json({
+                success: false,
+                error: { code: 400, message: "" + err }
+            })
+        }
+    }
 };
 

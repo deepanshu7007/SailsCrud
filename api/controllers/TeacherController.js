@@ -6,7 +6,8 @@
  */
 
 module.exports = {
-  
-
+    registerTeacher: async (req,res) => {
+        
+    }
 };
 
